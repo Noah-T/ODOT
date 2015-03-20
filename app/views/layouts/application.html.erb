@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ODOT</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>ODOT</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
 
-<% flash.each do |type, message| %>
-	<div class="alert flash <%= type %>">
-		<%= message %>
-	</div>	
-<% end %>
+	<div class="nav">
+		<h1><%= link_to "Odot", root_path %></h1>
+	</div>
+		<% flash.each do |type, message| %>
+			<div class="alert flash <%= type %>">
+				<%= message %>
+			</div>	
+			<ul>
+				<li><%= link_to "Todo lists", todo_lists_path %></li>
+			</ul>
+			<br class="clear">
+		<% end %>
 
-<%= yield %>
+		<%= yield %>
 
-</body>
+	</body>
 </html>
