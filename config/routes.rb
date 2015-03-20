@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :todo_lists do
     #gives us more routes to work with
-    resources :todo_items
+    resources :todo_items do
+      member do
+        patch :complete
+      end
+    end
   end
   root 'todo_lists#index'
 
